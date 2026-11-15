@@ -2,6 +2,8 @@
 
 本项目是对「全球网测」Android 客户端（`com.cnspeedtest.globalspeed`，4.4.8 / versionCode 40408）测速逻辑的 Go 复刻。
 
+模块路径：`github.com/ankikong/speedtest`
+
 APK 本身未包含在仓库中。逆向过程使用了 frida-dexdump 导出内存 dex、jadx 反编译，并解密了 App 运行时日志做交叉验证。
 
 ## 核心逻辑
@@ -201,8 +203,15 @@ App 还会维护一份全量服务器列表，用于手动选服：
 ## 构建
 
 ```bash
-cd /data/src/speedtest
+git clone git@github.com:ankikong/speedtest.git
+cd speedtest
 go build -o gspeed .
+```
+
+也可以直接安装：
+
+```bash
+go install github.com/ankikong/speedtest@latest
 ```
 
 ## 用法
